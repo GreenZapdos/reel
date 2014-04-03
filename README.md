@@ -8,6 +8,10 @@ reel is a HTTP movie share, think XBMC for web browsers
 
 You must change movie_path in reel.py to your movie direcotry.
 
+## Usage
+
+`python server.py`
+
 ## License
 
 reel is licensed under GPL 3.0, see LICENSE
