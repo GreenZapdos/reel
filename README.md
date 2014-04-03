@@ -18,8 +18,10 @@ back-to-the-future-part-1-1985.m4v  back-to-the-future-part-1-1985.nfo  back-to-
 ```
 
 You may need to modify your /etc/mime.types to support extra files.
-`image/jpeg                                      jpeg jpg jpe tbn`
-`video/mp4                                       mp4 m4v`
+```
+image/jpeg                                      jpeg jpg jpe tbn
+video/mp4                                       mp4 m4v
+```
 
 nfo files will be read for the <sorttile> tag
 ```
