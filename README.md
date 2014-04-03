@@ -23,7 +23,7 @@ image/jpeg                                      jpeg jpg jpe tbn
 video/mp4                                       mp4 m4v
 ```
 
-nfo files will be read for the `<sorttile>` tag
+.nfo files will be read for the `<sorttile>` tag
 ```
 <movie>
         <sorttitle>harry potter 4</sorttitle>
