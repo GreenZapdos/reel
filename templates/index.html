@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<link rel="shortcut icon" href="{{ url_for('static', filename='Photo-Video-Film.ico') }}">
+<title>reel</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='Photo-Video-Film-icon.png') }}" />
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">-->
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">-->
+</head>
+<body>
+
+<div class="titlebox"><h1 class='title'>reel</h1>
+<img class='logo' src='{{ url_for('static', filename='Photo-Video-Film-icon.png') }}'/></div>
+
+
+{% for t in movie_list %}
+<div class='row'>
+<a href='{{ t[0]['path'] }}'><div class="posterone"><img class='posterone' src='{{ t[0]['tbn'] }}'></div></a>
+<a href='{{ t[1]['path'] }}'><div class="postertwo"><img class='postertwo' src='{{ t[1]['tbn'] }}'></div></a>
+<a href='{{ t[2]['path'] }}'><div class="posterthr"><img class='posterthr' src='{{ t[2]['tbn'] }}'></div></a>
+
+</div>
+{% endfor %}
+<!--<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>-->
+
+</body>
+</html>
