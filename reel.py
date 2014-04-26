@@ -35,7 +35,7 @@ def find_movies(path):
 					for f in filenames:
 						split = os.path.splitext(f)
 						if split[1] == '.tbn' or split[1] == '.jpg' or split[1] == '.png':
-							if split[0] + '.m4v' == movie['name']:
+							if split[0] + '.m4v' == movie['name'] or True: # Need to fix this
 								movie['tbn'] = os.path.join(dirpath, f).replace(movie_path, '/posters/')
 						if split[1] == '.nfo':
 							try:
