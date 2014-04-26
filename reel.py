@@ -11,7 +11,7 @@ from flask import Flask, request, send_file, Response, render_template, url_for
 import os, mimetypes, re, StringIO, datetime, user_agents
 from itertools import izip_longest
 from bs4 import BeautifulSoup
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 app = Flask(__name__)
 
 def settings(s):
@@ -35,8 +35,9 @@ def find_movies(path):
 					for f in filenames:
 						split = os.path.splitext(f)
 						if split[1] == '.tbn' or split[1] == '.jpg' or split[1] == '.png':
-							movie['tbn'] = os.path.join(dirpath, f).replace(movie_path, '/posters/')
-                                                if split[1] == '.nfo':
+							if split[0] + '.m4v' == movie['name']:
+								movie['tbn'] = os.path.join(dirpath, f).replace(movie_path, '/posters/')
+						if split[1] == '.nfo':
 							try:
 								soup = BeautifulSoup(open(os.path.join(dirpath, f)))
 								movie['name'] = soup.movie.sorttitle.get_text()
@@ -45,7 +46,7 @@ def find_movies(path):
 				try:
 					movie['tbn']
 				except:
-					movie['tbn'] = '/static/missing-poster.jpg'
+					movie['tbn'] = '/missing/' + movie['name']
 				list.append(movie)
 	return list
 
@@ -85,6 +86,20 @@ def img(filename):
 			tbn.save(output, format='JPEG')
 		return Response(response=[output.getvalue()], status=200, headers={'Cache-Control': 'max-age=31557600, public', 'Last-Modified': modified}, mimetype='image/jpeg', content_type=None, direct_passthrough=False)
 
+@app.route('/missing/<filename>')
+def missing(filename):
+	width = 266
+	height = 400
+	tbn = Image.new('RGB', (width, height))
+	draw = ImageDraw.Draw(tbn)
+	text_x, text_y = draw.textsize(filename)
+	x = (width - text_x)/2
+	y = (height - text_y)/2
+	draw.text((x,y), filename)
+	output = StringIO.StringIO()
+	tbn.save(output, format='JPEG')
+	return Response(response=[output.getvalue()], status=200, mimetype='image/jpeg', content_type=None, direct_passthrough=False)
+
 if __name__ == '__main__':
 	print 'run server.py not reel.py'
-#	app.run(port=port, host='0.0.0.0', debug=debug)
+	#app.run(port=port, host='0.0.0.0', debug=debug)
