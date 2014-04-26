@@ -4,4 +4,4 @@ h1.title{display:inline;margin-left:10px;position:relative; left: 25px; max-font
 img.logo{max-height: 100%; position:relative; left: 25px; }
 img.posterone, img.postertwo, img.posterthr{max-width:100%}
 div.posterone, div.postertwo, div.posterthr{max-width: 33.33333333333333333%; height: 100%; overflow:hidden;display: inline-block; background-color: black; position: relative; float:left;}
-div.row{width:100%; max-width:800px; height: auto;overflow: hidden;margin-left: auto; margin-right: auto;}
+div.row{width:100%; max-width:798px; height: auto;overflow: hidden;margin-left: auto; margin-right: auto; background-color: black;}
