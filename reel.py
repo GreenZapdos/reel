@@ -1,6 +1,6 @@
 ##Configuration##
 movie_path = '/path/to/movies/' #Full path of movie folder goes here
-port = 9001
+port = 9000
 debug = True
 
 if movie_path == '/path/to/movies/':

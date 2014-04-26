@@ -6,7 +6,7 @@ reel is a HTTP movie share, think XBMC for web browsers
 
 ## Requirements
 
-Run `pip install twisted flask beautifulsoup4` to make sure you have all the requirements.
+Run `pip install twisted flask beautifulsoup4 user_agents Pillow` to make sure you have all the requirements.
 
 ## Configuration
 
