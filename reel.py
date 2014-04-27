@@ -2,6 +2,7 @@
 movie_path = '/path/to/movies/' #Full path of movie folder goes here
 port = 9000
 debug = True
+tbn_formats = ['tbn', 'png', 'jpg', 'jpeg']
 
 if movie_path == '/path/to/movies/':
 	print '!!Change movie_path in reel.py !!'
@@ -31,22 +32,12 @@ def find_movies(path):
 				movie = dict()
 				movie['path'] = os.path.join(dirpath, f).replace(movie_path, '/movie-directory/')
 				movie['name'] = f
-				for (dirpath, dirnames, filenames) in os.walk(dirpath):
-					for f in filenames:
-						split = os.path.splitext(f)
-						if split[1] == '.tbn' or split[1] == '.jpg' or split[1] == '.png':
-							if split[0] + '.m4v' == movie['name'] or True: # Need to fix this
-								movie['tbn'] = os.path.join(dirpath, f).replace(movie_path, '/posters/')
-						if split[1] == '.nfo':
-							try:
-								soup = BeautifulSoup(open(os.path.join(dirpath, f)))
-								movie['name'] = soup.movie.sorttitle.get_text()
-							except:
-								pass
-				try:
-					movie['tbn']
-				except:
-					movie['tbn'] = '/missing/' + movie['name']
+				split = os.path.splitext(f)
+				for format in tbn_formats:
+					if os.path.isfile(os.path.join(dirpath, split[0] + '.' + format)):
+						movie['tbn'] = os.path.join(dirpath, split[0] + '.' + format).replace(movie_path, '/posters/')
+				if not 'tbn' in movie:
+						movie['tbn'] = '/missing/' + movie['name']
 				list.append(movie)
 	return list
 
