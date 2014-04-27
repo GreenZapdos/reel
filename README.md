@@ -17,9 +17,8 @@ $ ls /movies/back-to-the-future-part-1-1985/
 back-to-the-future-part-1-1985.m4v  back-to-the-future-part-1-1985.nfo  back-to-the-future-part-1-1985.tbn
 ```
 
-You may need to modify your /etc/mime.types to support extra files.
+You may need to modify your /etc/mime.types to support the m4v extension.
 ```
-image/jpeg                                      jpeg jpg jpe tbn
 video/mp4                                       mp4 m4v
 ```
 
