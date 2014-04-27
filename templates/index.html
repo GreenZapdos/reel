@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='Photo-Video-Film-icon.png') }}" />
-<!--<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">-->
-<!--<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">-->
 </head>
 <body>
 
@@ -20,13 +18,18 @@
 
 {% for t in movie_list %}
 <div class='row'>
+{% if t[0]['tbn'] %}
 <a href='{{ t[0]['path'] }}'><div class="posterone"><img class='posterone' src='{{ t[0]['tbn'] }}'></div></a>
+{% endif %}
+{% if t[1]['tbn'] %}
 <a href='{{ t[1]['path'] }}'><div class="postertwo"><img class='postertwo' src='{{ t[1]['tbn'] }}'></div></a>
+{% endif %}
+{% if t[2]['tbn'] %}
 <a href='{{ t[2]['path'] }}'><div class="posterthr"><img class='posterthr' src='{{ t[2]['tbn'] }}'></div></a>
+{% endif %}
 
 </div>
 {% endfor %}
-<!--<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>-->
 
 </body>
 </html>
