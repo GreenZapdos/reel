@@ -38,6 +38,12 @@ def find_movies(path):
 						movie['tbn'] = os.path.join(dirpath, split[0] + '.' + format).replace(movie_path, '/posters/')
 				if not 'tbn' in movie:
 						movie['tbn'] = '/missing/' + movie['name']
+				if os.path.isfile(os.path.join(dirpath, split[0] + '.nfo')):
+					try:
+						soup = BeautifulSoup(open(os.path.join(dirpath, split[0] + '.nfo')), 'xml')
+						movie['name'] = soup.movie.sorttitle.get_text()
+					except:
+						pass
 				list.append(movie)
 	return list
 
