@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 app = Flask(__name__)
 
 if not os.path.isfile('config.yml'):
-       print('copy config.yml.default to confing.yml, then modify the settings')
+       print('copy config.yml.default to config.yml, then modify the settings')
        quit()
 
 with open('config.yml') as f:
