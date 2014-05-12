@@ -6,12 +6,12 @@ reel is a HTTP movie share, think XBMC for web browsers
 
 ## Requirements
 
-Run `pip install twisted flask beautifulsoup4 user_agents Pillow` to make sure you have all the requirements.
+Run `pip install twisted flask beautifulsoup4 user_agents Pillow PyYaml` to make sure you have all the requirements.
 
 ## Configuration
 
-You must change movie_path in reel.py to your movie direcotry.
-The movie directory should have movies organized into subfolders, with thumbnails(jpg, png or tbn) and XBMC-style .nfo files.
+copy `config.yml.default` to `config.yml` and modify the values.
+The movie directory should have movies organized into subfolders, with thumbnails(jpg, png or tbn) and (optionally) XBMC-style .nfo files
 ```
 $ ls /movies/back-to-the-future-part-1-1985/
 back-to-the-future-part-1-1985.m4v  back-to-the-future-part-1-1985.nfo  back-to-the-future-part-1-1985.tbn

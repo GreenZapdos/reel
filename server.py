@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from twisted.web import server, resource, static, twcgi
 from twisted.internet import reactor
 from twisted.web.resource import Resource

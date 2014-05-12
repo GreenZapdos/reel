@@ -1,0 +1,10 @@
+## Reel Configuration ##
+
+movie_path: '/path/to/movies/'
+port: 9000
+debug: False
+tbn_formats:
+- 'tbn'
+- 'png'
+- 'jpg'
+- 'jpeg'
