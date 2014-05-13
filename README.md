@@ -37,5 +37,3 @@ Click on the movie thumbnails to watch the movie.
 ## License
 
 reel is licensed under GPL 3.0, see LICENSE
-
-Photo-Video-Film.ico and Photo-Video-Film-icon.png are from http://www.iconarchive.com/show/icons8-metro-style-icons-by-visualpharm/Photo-Video-Film-icon.html copyright http://www.visualpharm.com/

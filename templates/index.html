@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-<link rel="shortcut icon" href="{{ url_for('static', filename='Photo-Video-Film.ico') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='reel.ico') }}">
 <title>reel</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='Photo-Video-Film-icon.png') }}" />
+<link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='reel.png') }}" />
 </head>
 <body>
 
 <div class="titlebox"><h1 class='title'>reel</h1>
-<img class='logo' src='{{ url_for('static', filename='Photo-Video-Film-icon.png') }}'/></div>
+<img class='logo' src='{{ url_for('static', filename='reel.png') }}'/></div>
 
 
 {% for t in movie_list %}
