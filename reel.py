@@ -7,11 +7,13 @@ from bs4 import BeautifulSoup
 from PIL import Image, ImageDraw, ImageFont
 app = Flask(__name__)
 
-if not os.path.isfile('./' + os.path.split(__file__)[0] + '/' + 'config.yml'):
+cpath = os.path.join(os.path.split(__file__)[0], 'config.yml')
+
+if not os.path.isfile(cpath):
        print('copy config.yml.default to config.yml, then modify the settings')
        quit()
 
-with open('./' + os.path.split(__file__)[0] + '/' + 'config.yml') as f:
+with open(cpath) as f:
        config = yaml.safe_load(f)
 
 def settings(s):
