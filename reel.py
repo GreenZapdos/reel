@@ -65,13 +65,16 @@ def find_movies(path):
 def movies():
 	global old_movie_list
 	modified = old_movie_list['modified']
-	if 'If-Modified-Since' in request.headers and request.headers['If-Modified-Since'] == modified:
+	movie_list = find_movies(config['movie_path'])
+	if 'If-Modified-Since' in request.headers and old_movie_list['list'] == movie_list:
 		return Response(response='', status=304, headers={'Cache-Control': 'max-age=31557600, public', 'Last-Modified': modified}, direct_passthrough=False)
 	else:
-		movie_list = find_movies(config['movie_path'])
+		print old_movie_list['list']
+		print movie_list
+		print('modified')
+		old_movie_list['list'] = movie_list
 		movie_list = sorted(movie_list, key=lambda k: k['name'])
 		movie_list = list(izip_longest(movie_list[0::3], movie_list[1::3], movie_list[2::3]))
-		old_movie_list['list'] = movie_list
 		old_movie_list['modified'] = datetime.datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
 		modified = old_movie_list['modified']
 		return Response(response=render_template('index.html', movie_list=movie_list), status=200, headers={'Cache-Control': 'max-age=31557600, public', 'Last-Modified': modified}, direct_passthrough=False)
