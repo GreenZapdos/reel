@@ -8,3 +8,6 @@ tbn_formats:
 - 'png'
 - 'jpg'
 - 'jpeg'
+movie_formats:
+- 'mp4'
+- 'm4v'

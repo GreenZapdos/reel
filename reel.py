@@ -24,6 +24,15 @@ if not os.path.isfile(cpath):
 #Load Config
 with open(cpath) as f:
        config = yaml.safe_load(f)
+try:
+	config['movie_path']
+	config['port']
+	config['debug']
+	config['tbn_formats']
+	config['movie_formats']
+except:
+	print('\nConfig missing options, check config.yml.default!\n')
+	raise
 
 #Return settings (Called by server.py)
 def settings(s):
@@ -40,7 +49,7 @@ def find_movies(path):
 			find_movies(d)
 		for f in filenames:#Detect movies or thumbnails
 			split = os.path.splitext(f)
-			if split[1] == '.m4v':
+			if split[1].replace('.', '') in config['movie_formats']:
 				movie = dict()
 				movie['path'] = os.path.join(dirpath, f).replace(config['movie_path'], '/movie-directory/')
 				movie['name'] = f
@@ -69,9 +78,6 @@ def movies():
 	if 'If-Modified-Since' in request.headers and old_movie_list['list'] == movie_list:
 		return Response(response='', status=304, headers={'Cache-Control': 'max-age=31557600, public', 'Last-Modified': modified}, direct_passthrough=False)
 	else:
-		print old_movie_list['list']
-		print movie_list
-		print('modified')
 		old_movie_list['list'] = movie_list
 		movie_list = sorted(movie_list, key=lambda k: k['name'])
 		movie_list = list(izip_longest(movie_list[0::3], movie_list[1::3], movie_list[2::3]))
