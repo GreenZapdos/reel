@@ -29,9 +29,6 @@ img.poster{
 	float: left;
 	}
 div.row{
-	height: auto;
 	overflow: hidden;
-	margin-left: auto;
-	margin-right: auto;
 	background-color: black;
 	}
