@@ -1,7 +1,37 @@
-body{background-color:#eee; font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;}
-div.titlebox{max-width:800px; margin-left: auto; margin-right:auto; margin-top:8px; margin-bottom:8px;height:2em;}
-h1.title{display:inline;margin-left:10px;position:relative; left: 25px; max-font-size:100%;}
-img.logo{max-height: 100%; position:relative; left: 25px; float:left;}
-img.posterone, img.postertwo, img.posterthr{max-width:100%}
-div.posterone, div.postertwo, div.posterthr{max-width: 33.33333333333333333%; height: 100%; overflow:hidden;display: inline-block; background-color: black; position: relative; float:left;}
-div.row{width:100%; max-width:798px; height: auto;overflow: hidden;margin-left: auto; margin-right: auto; background-color: black;}
+html,body,div,span,img{margin:0;}
+body{
+	background-color: #eee;
+	font-family: 'HelveticaNeue-UltraLight', "HelveticaNeueUltraLight", "HelveticaNeue-Ultra-Light", "Helvetica Neue Ultra Light", 'Century Gothic', "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Arial", sans-serif;
+	line-height: 1;
+	}
+div.container{
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+div.titlebox{
+	margin: 0.5em;
+	}
+div.title{
+	display: inline;
+	font-size: 2em;
+	margin-left: 0.25em;
+	}
+img.logo{
+	height: 2em;
+	float: left;
+	margin-left: 1.25em;
+	}
+img.poster{
+	max-width: calc(100%/3);
+	display: inline-block;
+	position: relative;
+	float: left;
+	}
+div.row{
+	height: auto;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: black;
+	}
