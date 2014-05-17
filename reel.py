@@ -75,7 +75,7 @@ def movies():
 	global old_movie_list
 	modified = old_movie_list['modified']
 	movie_list = find_movies(config['movie_path'])
-	if 'If-Modified-Since' in request.headers and old_movie_list['list'] == movie_list:
+	if 'If-Modified-Since' in request.headers and request.headers['If-Modified-Since'] == modified and old_movie_list['list'] == movie_list:
 		return Response(response='', status=304, headers={'Cache-Control': 'max-age=31557600, public', 'Last-Modified': modified}, direct_passthrough=False)
 	else:
 		old_movie_list['list'] = movie_list
