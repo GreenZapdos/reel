@@ -55,8 +55,9 @@ def find_movies(path):
 				movie['name'] = f
 				split = os.path.splitext(f)
 				for format in config['tbn_formats']:
-					if os.path.isfile(os.path.join(dirpath, split[0] + '.' + format)):
-						movie['tbn'] = os.path.join(dirpath, split[0] + '.' + format).replace(config['movie_path'], '/posters/')
+					for suffix in ['', '-poster']:
+						if os.path.isfile(os.path.join(dirpath, split[0] + suffix + '.' + format)):
+							movie['tbn'] = os.path.join(dirpath, split[0] + suffix + '.' + format).replace(config['movie_path'], '/posters/')
 				if not 'tbn' in movie:
 						movie['tbn'] = '/missing/' + movie['name']
 				if os.path.isfile(os.path.join(dirpath, split[0] + '.nfo')): #Read nfo file to sort movies in proper order
